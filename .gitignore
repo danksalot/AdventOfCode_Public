@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+# Prohibited files
+Puzzle
+Solutions
+*Input*
+
 # Distribution / packaging
 .Python
 build/
