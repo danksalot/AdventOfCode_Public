@@ -1,7 +1,7 @@
 import functools
 import re
 
-codes = [('279A','LUALUUARRADDDA'),('286A','LUAUUADRADDA'),('508A','LUUADDAUUUADDDRA'),('463A','UULLARRADADA'),('246A','LUALUARRADDA')]
+codes = [(279,'LUALUUARRADDDA'),(286,'LUAUUADRADDA'),(508,'LUUADDAUUUADDDRA'),(463,'UULLARRADADA'),(246,'LUALUARRADDA')]
 
 arrowPadMap = {
     ('A','A'):'A',('A','U'):'LA',('A','R'):'DA',('A','D'):'LDA',('A','L'):'DLLA',
@@ -24,5 +24,5 @@ def pressesRequired(code, level):
     else:
         return sum([pressesRequired(useArrowPad(sequence), level-1) for sequence in sequences])
 
-print("Part 1:", sum(pressesRequired(code[1], 2) * int(code[0][:-1]) for code in codes))
-print("Part 2:", sum(pressesRequired(code[1], 25) * int(code[0][:-1]) for code in codes))
+print("Part 1:", sum(pressesRequired(code[1], 2) * code[0] for code in codes))
+print("Part 2:", sum(pressesRequired(code[1], 25) * code[0] for code in codes))
